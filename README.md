@@ -24,9 +24,9 @@ rather than letting dzil add the `$VERSION` based on a setting in the
 
 This code is mostly the same as what Christopher J. Madsen's
 [Dist::Zilla::Plugin::VersionFromModule](https://metacpan.org/pod/Dist::Zilla::Plugin::VersionFromModule) module does. Unfortunately, that
-module is only shipped as part of a larger distro, and that distro has not
-been updated despite the fact that it is failing tests with newer versions of
-dzil.
+module is only shipped as part of a larger distribution, and that distribution
+has not been updated despite the fact that it is failing tests with newer
+versions of dzil.
 
 # SUPPORT
 
