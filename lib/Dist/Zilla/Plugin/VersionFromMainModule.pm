@@ -15,16 +15,20 @@ with 'Dist::Zilla::Role::VersionProvider';
 sub provide_version {
     my $self = shift;
 
-    my $content = $self->zilla->main_module->content;
-    open my $fh, '<', $content;
+    my $module = $self->zilla->main_module;
 
-    my $metadata
-        = Module::Metadata->new_from_handle( $content, collect_pod => 0 );
+    my $content = $module->content;
+    open my $fh, '<', \$content
+        or die $!;
+    my $metadata = Module::Metadata->new_from_handle( $fh, collect_pod => 0 );
+    close $fh or die $!;
+
     my $ver = $metadata->version;
 
-    $self->log_fatal("Unale to get version from $module");
+    my $name = $module->name;
+    $self->log_fatal("Unale to get version from $name");
 
-    $self->log_debug("Setting dist version $ver from $module");
+    $self->log_debug("Setting dist version $ver from $name");
 
     return $ver;
 }
@@ -55,6 +59,6 @@ F<dist.ini>.
 
 This code is mostly the same as what Christopher J. Madsen's
 L<Dist::Zilla::Plugin::VersionFromModule> module does. Unfortunately, that
-module is only shipped as part of a larger distro, and that distro has not
-been updated despite the fact that it is failing tests with newer versions of
-dzil.
+module is only shipped as part of a larger distribution, and that distribution
+has not been updated despite the fact that it is failing tests with newer
+versions of dzil.
