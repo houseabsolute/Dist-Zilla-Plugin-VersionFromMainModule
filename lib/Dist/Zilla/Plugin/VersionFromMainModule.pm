@@ -16,21 +16,22 @@ sub provide_version {
     my $self = shift;
 
     my $module = $self->zilla->main_module;
+    my $name   = $module->name;
 
     my $content = $module->content;
     open my $fh, '<', \$content
         or die $!;
-    my $metadata = Module::Metadata->new_from_handle( $fh, collect_pod => 0 );
+    my $metadata
+        = Module::Metadata->new_from_handle( $fh, $name, collect_pod => 0 );
     close $fh or die $!;
 
-    my $ver = $metadata->version;
-
-    my $name = $module->name;
-    $self->log_fatal("Unale to get version from $name");
+    my $ver = $metadata->version
+        or $self->log_fatal("Unable to get version from $name");
 
     $self->log_debug("Setting dist version $ver from $name");
 
-    return $ver;
+    # We need to stringify this since it can be a version object.
+    return "$ver";
 }
 
 __PACKAGE__->meta->make_immutable;
