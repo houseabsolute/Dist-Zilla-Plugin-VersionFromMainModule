@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::VersionFromMainModule - Set the distribution version from y
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
@@ -30,10 +30,13 @@ versions of dzil.
 
 # SUPPORT
 
-Bugs may be submitted through [the RT bug tracker](http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-VersionFromMainModule)
-(or [bug-dist-zilla-plugin-versionfrommainmodule@rt.cpan.org](mailto:bug-dist-zilla-plugin-versionfrommainmodule@rt.cpan.org)).
+Bugs may be submitted at [http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-VersionFromMainModule](http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-VersionFromMainModule) or via email to [bug-dist-zilla-plugin-versionfrommainmodule@rt.cpan.org](mailto:bug-dist-zilla-plugin-versionfrommainmodule@rt.cpan.org).
 
 I am also usually active on IRC as 'autarch' on `irc://irc.perl.org`.
+
+# SOURCE
+
+The source code repository for Dist-Zilla-Plugin-VersionFromMainModule can be found at [https://github.com/houseabsolute/Dist-Zilla-Plugin-VersionFromMainModule](https://github.com/houseabsolute/Dist-Zilla-Plugin-VersionFromMainModule).
 
 # AUTHORS
 
@@ -46,3 +49,6 @@ This software is copyright (c) 2009 - 2017 by Christopher J. Madsen.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+The full text of the license can be found in the
+`LICENSE` file included with this distribution.
