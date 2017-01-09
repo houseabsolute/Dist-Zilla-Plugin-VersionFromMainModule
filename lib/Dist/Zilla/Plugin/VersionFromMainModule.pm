@@ -18,7 +18,7 @@ sub provide_version {
     my $module = $self->zilla->main_module;
     my $name   = $module->name;
 
-    my $content = $module->content;
+    my $content = $module->encoded_content;
     open my $fh, '<', \$content
         or die $!;
     my $metadata
