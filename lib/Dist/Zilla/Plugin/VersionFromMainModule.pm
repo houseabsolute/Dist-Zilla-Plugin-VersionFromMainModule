@@ -6,7 +6,7 @@ use namespace::autoclean;
 
 our $VERSION = '0.03';
 
-use Module::Metadata;
+use Module::Metadata 1.000005;
 
 use Moose;
 
