@@ -6,24 +6,17 @@ use namespace::autoclean;
 
 our $VERSION = '0.04';
 
-use Module::Metadata 1.000005;
-
 use Moose;
 
-with 'Dist::Zilla::Role::VersionProvider';
+with 'Dist::Zilla::Role::VersionProvider',
+    'Dist::Zilla::Role::ModuleMetadata';
 
 sub provide_version {
     my $self = shift;
 
     my $module = $self->zilla->main_module;
     my $name   = $module->name;
-
-    my $content = $module->encoded_content;
-    open my $fh, '<', \$content
-        or die $!;
-    my $metadata
-        = Module::Metadata->new_from_handle( $fh, $name, collect_pod => 0 );
-    close $fh or die $!;
+    my $metadata = $self->module_metadata_for_file($module, collect_pod => 0);
 
     my $ver = $metadata->version
         or $self->log_fatal("Unable to get version from $name");
