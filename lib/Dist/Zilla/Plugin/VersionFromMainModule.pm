@@ -14,6 +14,8 @@ with 'Dist::Zilla::Role::VersionProvider',
 sub provide_version {
     my $self = shift;
 
+    return $ENV{V} if exists $ENV{V};
+
     my $module = $self->zilla->main_module;
     my $name   = $module->name;
     my $metadata = $self->module_metadata_for_file($module, collect_pod => 0);
@@ -48,6 +50,9 @@ This plugin is useful if you want to set the C<$VERSION> in your module(s)
 manually or with some sort of post-release "increment the C<$VERSION>" plugin,
 rather than letting dzil add the C<$VERSION> based on a setting in the
 F<dist.ini>.
+
+You can override the distribution version by setting the C<V> environment
+variable, e.g.: C<V=1.23 dzil release>.
 
 =head1 CREDITS
 
