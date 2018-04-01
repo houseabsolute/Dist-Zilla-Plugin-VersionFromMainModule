@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- If $ENV{V} is set then this overrides the version. Patch by Karen
+  Etheridge. GH #1.
+
+
 0.03     2017-06-13
 
 - Require Module::Metadata 1.000005 or greater. Earlier versions are missing a
