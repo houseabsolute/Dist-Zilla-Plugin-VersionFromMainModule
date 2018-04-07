@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.04     2018-04-07
+
 - If $ENV{V} is set then this overrides the version. Patch by Karen
   Etheridge. GH #1.
 
